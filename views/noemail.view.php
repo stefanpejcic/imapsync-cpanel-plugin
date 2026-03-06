@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <ul class="nav navbar-nav">
                     <li><a style="cursor:pointer" onClick="window.location.assign(window.location.pathname);">Transfer</a></li>
-                        <li><a  target="_blank" href="#"> Pomoć</a></li>
+                        <li><a  target="_blank" href="#"> Help</a></li>
                 </ul>
             </div>
         </nav>
@@ -15,7 +15,7 @@
             <div id="deleteError" class="alert alert-danger">
                 <span class="glyphicon glyphicon-remove-sign"></span>
                 <div class="alert-message">
-                    Trenutno nemate nijedan email nalog na koji bi ste mogli prebaciti mejlove. Napravite novi email nalog <a href="../email_accounts/index.html#/create">ovde</a>.
+                    No email accounts are available to transfer emails. You can <a href="../email_accounts/index.html#/create">create a new email account here</a>.
                 </div>
             </div>
         </div>
