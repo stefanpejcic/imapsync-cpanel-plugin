@@ -19,6 +19,23 @@ if ! command -v imapsync &> /dev/null; then
         dnf install -y epel-release || true
         if ! dnf install -y imapsync; then
             echo "imapsync package not available. Installing from source..."
+
+            dnf install -y \
+            perl perl-core perl-App-cpanminus \
+            perl-Authen-NTLM \
+            perl-Data-Dumper \
+            perl-Digest-HMAC \
+            perl-Digest-MD5 \
+            perl-IO-Socket-SSL \
+            perl-IO-Tty \
+            perl-Mail-IMAPClient \
+            perl-Term-ReadKey \
+            perl-Unicode-String \
+            perl-Encode-IMAPUTF7 \
+            perl-File-Copy-Recursive \
+            perl-Test-MockObject \
+            perl-Test-Pod
+
             dnf install -y git perl perl-App-cpanminus
             cd /opt
             git clone https://github.com/imapsync/imapsync.git
