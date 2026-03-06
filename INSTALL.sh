@@ -16,7 +16,17 @@ echo "--- Step 1: Checking for imapsync binary ---"
 if ! command -v imapsync &> /dev/null; then
     echo "imapsync not found. Installing..."
     if command -v dnf &> /dev/null; then
-        dnf install -y epel-release && dnf install -y imapsync
+        dnf install -y epel-release || true
+        if ! dnf install -y imapsync; then
+            echo "imapsync package not available. Installing from source..."
+            dnf install -y git perl perl-App-cpanminus
+            cd /opt
+            git clone https://github.com/imapsync/imapsync.git
+            cd imapsync
+            cpanm --installdeps .
+            ln -s /opt/imapsync/imapsync /usr/local/bin/imapsync
+            chmod +x /opt/imapsync/imapsync
+        fi
     elif command -v yum &> /dev/null; then
         yum install -y epel-release && yum install -y imapsync
     elif command -v apt-get &> /dev/null; then
